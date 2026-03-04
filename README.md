@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Челендж по Tanstack Query
 
-## Getting Started
+### Основное Задание
 
-First, run the development server:
+1. Развернуть Next JS проект и подключить tanstack query.  Сразу добавляем девтулзы
+2. В качестве API используем https://jsonplaceholder.typicode.com/
+3. Сделать Query за получением пользователей. Открываем девтулзы от танстека и смотрим там как ведут себя данные.
+4. Добавить кнопку, которая делает инвалидацию данных по ключу через queryClient
+5. Сделать запрос (мутацию), который обновляет одну из сущностей по клику на нее и на success делает инвалидацию по ключу
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Задание со звездочкой
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Развернуть Next JS проект и подключить tanstack query. Сразу добавляем девтулзы
+2. В качестве API используем https://jsonplaceholder.typicode.com/
+3. Реализовать список пользователей с бесконечной лентой (пагинация при скролле). НО С ПЕРВЫМ СЕРВЕРНЫМ ЗАПРОСОМ. Т.е делаем запрос в серверном компоненте, прокидываем данные вниз, их подхватывает query как initialData и дальше уже вся подгрузка делается средствами tanstackQuery
+4. Реализуем обновление пользователя по клику через optimistic update с восстановлением исходных данных в случае ошибки
+5. Добавляем кнопку, которая делает abort (отмену) запроса при нажатии на нее. Для тестирования можно в девтулзах сделать low 3g, чтобы запрос шел дольше
+6. Добавляем 4 кнопки, одна делает cancelQueries, вторая removeQueries, третья refetchQueries, четвертая invalidateQueries. Смотрим в чем разница.
+7. Задаем в query staleTime и gcTime с разными значениями, открываем девтулзы и смотрим как ведут себя запросы и кеш в них.
+8. Используем select пропс чтобы вытащить конкретные данные из query. 
