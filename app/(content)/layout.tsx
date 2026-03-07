@@ -7,7 +7,7 @@ export default function ContentLayout({children}: Readonly<{ children: React.Rea
       {children}
       <Link
         href='/'
-        className="inline-block text-white rounded-md p-2 font-medium text-lg bg-blue-500 hover:bg-blue-600 transition-colors"
+        className="inline-block text-white rounded-md p-2 font-medium text-lg bg-green-500 hover:bg-green-700 transition-colors"
       >
         Вернуться назад
       </Link>

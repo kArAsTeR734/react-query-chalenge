@@ -1,8 +1,9 @@
 import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
-import "./globals.css";
 import React from "react";
+import './globals.css'
 import Link from "next/link";
+import QueryProvider from "@/src/app/providers/QueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,41 +30,43 @@ export default function RootLayout({
     <body
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-    <header className="flex min-h-15 items-center justify-center p-4">
-      <nav>
-        <ul className="flex items-center w-full gap-[16px] list-none underline cursor-pointer">
-          <li className="text-black">
-            <Link
-              href="/news"
-              className="text-blue-600 hover:text-blue-800 underline transition-colors"
-            >
-              News
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/post"
-              className="text-blue-600 hover:text-blue-800 underline transition-colors"
-            >
-              Post
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/list"
-              className="text-blue-600 hover:text-blue-800 underline transition-colors"
-            >
-              List
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center gap-3 py-32 px-16">
-        {children}
-      </main>
-    </div>
+    <QueryProvider>
+      <header className="flex min-h-15 items-center justify-center p-4">
+        <nav>
+          <ul className="flex items-center w-full gap-[16px] list-none underline cursor-pointer">
+            <li className="text-black">
+              <Link
+                href="/users"
+                className="text-blue-600 hover:text-blue-800 underline transition-colors"
+              >
+                Users
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/post"
+                className="text-blue-600 hover:text-blue-800 underline transition-colors"
+              >
+                Post
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/list"
+                className="text-blue-600 hover:text-blue-800 underline transition-colors"
+              >
+                List
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
+        <main className="flex min-h-screen w-full max-w-3xl flex-col items-center gap-3 py-32 px-16">
+          {children}
+        </main>
+      </div>
+    </QueryProvider>
     </body>
     </html>
   );
